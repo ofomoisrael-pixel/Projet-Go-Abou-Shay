@@ -43,19 +43,23 @@ func takePot(index int) {
 		return
 	}
 	p1.CurrentHP += 50
-	if p1.CurrentHP > p1.MaxHP { p1.CurrentHP = p1.MaxHP }
-	removeInventory(index)
+	if p1.CurrentHP > p1.MaxHP {
+		p1.CurrentHP = p1.MaxHP
+	}
+	removeInventory(&p1, "Potion")
 	fmt.Printf("Soigné ! PV : %d/%d\n", p1.CurrentHP, p1.MaxHP)
 }
 
 // TACHE 9 : Poison
 func poisonPot(index int) {
-	removeInventory(index)
+	removeInventory(&p1, "Potion de Poison")
 	for i := 0; i < 3; i++ {
 		time.Sleep(1 * time.Second)
 		p1.CurrentHP -= 10
 		fmt.Printf("Dégâts poison... PV : %d/%d\n", p1.CurrentHP, p1.MaxHP)
-		if isDead() { break }
+		if isDead() {
+			break
+		}
 	}
 }
 
@@ -68,20 +72,32 @@ func spellBook(index int) {
 		}
 	}
 	p1.Skills = append(p1.Skills, "Boule de Feu")
-	removeInventory(index)
+	removeInventory(&p1, "Livre de Sort : Boule de Feu")
 	fmt.Println("Sort appris : Boule de Feu !")
 }
 
 // Outils (TACHE 12)
-func addInventory(item string) {
-	if len(p1.Inventory) < p1.InventoryLimit {
-		p1.Inventory = append(p1.Inventory, item)
-		fmt.Printf("Ajouté : %s\n", item)
-	} else {
-		fmt.Println("Inventaire plein !")
-	}
+func addInventory(player *Character, item string) {
+	player.Inventory = append(player.Inventory, item)
 }
 
-func removeInventory(index int) {
-	p1.Inventory = append(p1.Inventory[:index], p1.Inventory[index+1:]...)
+func removeInventory(player *Character, item string) {
+	for i, v := range player.Inventory {
+		if v == item {
+			player.Inventory = append(player.Inventory[:i], player.Inventory[i+1:]...)
+			return
+		}
+	}
+}
+func isInventoryFull(player *Character) bool {
+	return len(player.Inventory) >= player.InventoryMax
+}
+func countItem(player *Character, item string) int {
+	count := 0
+	for _, v := range player.Inventory {
+		if v == item {
+			count++
+		}
+	}
+	return count
 }

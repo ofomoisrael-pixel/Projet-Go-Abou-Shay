@@ -17,6 +17,13 @@ type Character struct {
 	InventoryLimit int
 	Skills         []string
 	Money          int
+	Gold           int
+	InventoryMax   int
+	UpgradeCount   int
+
+	Head string
+	Body string
+	Feet string
 }
 
 var p1 Character
@@ -27,7 +34,7 @@ func characterCreation() {
 	fmt.Print("Entrez le nom de votre héros : ")
 	name, _ := reader.ReadString('\n')
 	name = strings.TrimSpace(name)
-	
+
 	// Formatage : Majuscule au début, reste en minuscule
 	name = strings.Title(strings.ToLower(name))
 
@@ -35,7 +42,7 @@ func characterCreation() {
 	fmt.Println("1. Humain (100 PV)")
 	fmt.Println("2. Elfe (80 PV)")
 	fmt.Println("3. Nain (120 PV)")
-	
+
 	var choice int
 	fmt.Scan(&choice)
 
@@ -49,6 +56,12 @@ func characterCreation() {
 	case 3:
 		class = "Nain"
 		maxHP = 120
+	case 4:
+		class = "rayann"
+		maxHP = 70
+	case 5:
+		class = "Hollow"
+		maxHP = 13
 	}
 
 	// TACHE 1 & 2 : Initialisation
@@ -61,7 +74,7 @@ func characterCreation() {
 		Inventory:      []string{"Potion", "Potion", "Potion"},
 		InventoryLimit: 10,
 		Skills:         []string{"Coup de Poing"},
-		Money:          100,
+		Gold:           100,
 	}
 	fmt.Printf("\nBienvenue, %s l'%s !\n", p1.Name, p1.Class)
 }

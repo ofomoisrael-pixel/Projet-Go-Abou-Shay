@@ -26,12 +26,12 @@ func craftItem(player *Character, item string) {
 	recipe := recipes[item]
 
 	if !hasMaterials(player, recipe) {
-		fmt.Println("Pas assez de ressources")
+		fmt.Println("Not enough ressources")
 		return
 	}
 
 	if player.Gold < 5 {
-		fmt.Println("Pas assez d'argent")
+		fmt.Println("Not enough Money")
 		return
 	}
 
@@ -40,7 +40,7 @@ func craftItem(player *Character, item string) {
 
 	addInventory(player, item)
 
-	fmt.Println(item, "fabriqué !")
+	fmt.Println(item, "made !")
 }
 
 // Menu forgeron
@@ -49,21 +49,21 @@ func forgeMenu(player *Character) {
 	choice := -1
 
 	for choice != 0 {
-		fmt.Println("=== FORGERON ===")
-		fmt.Println("1. Chapeau")
-		fmt.Println("2. Tunique")
-		fmt.Println("3. Bottes")
-		fmt.Println("0. Retour")
+		fmt.Println("=== BLACKSMITH ===")
+		fmt.Println("1. hat")
+		fmt.Println("2. coat")
+		fmt.Println("3. Boots")
+		fmt.Println("0. exit")
 
 		fmt.Scan(&choice)
 
 		switch choice {
 		case 1:
-			craftItem(player, "Chapeau")
+			craftItem(player, "hat")
 		case 2:
-			craftItem(player, "Tunique")
+			craftItem(player, "coat")
 		case 3:
-			craftItem(player, "Bottes")
+			craftItem(player, "boots")
 		}
 	}
 }
