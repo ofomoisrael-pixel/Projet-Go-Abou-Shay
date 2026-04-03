@@ -3,7 +3,7 @@
 Bienvenue dans Projet RED, un jeu de rôle textuel développé en Golang. Ce projet a été réalisé dans le cadre de l'Ytrack chez Ynov.
 📝 Présentation
 
-Le jeu vous permet de créer un héros personnalisé parmi plusieurs classes (Humain, Elfe, Nain, et même des classes spéciales comme Rayann ou Hollow). Vous devrez gérer votre inventaire, apprendre des sorts puissants et affronter des monstres dans des combats stratégiques au tour par tour.
+Le jeu vous permet de créer un héros personnalisé parmi plusieurs classes (Humain, Elfe, Nain). Vous devrez gérer votre inventaire, apprendre des sorts puissants et affronter des monstres dans des combats stratégiques au tour par tour.
 Fonctionnalités principales :
 
     Création de personnage : Choix de la classe et formatage automatique du nom.
