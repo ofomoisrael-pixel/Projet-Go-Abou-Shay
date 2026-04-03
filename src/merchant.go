@@ -24,18 +24,25 @@ func merchantMenu(player *Character) {
 		switch choice {
 		case 1:
 			buyItem(player, "Potion", 3)
+			p1.Gold = p1.Gold - 3
 		case 2:
 			buyItem(player, "Poison", 6)
+			p1.Gold = p1.Gold - 6
 		case 3:
 			buyItem(player, "Livre", 25)
+			p1.Gold = p1.Gold - 25
 		case 4:
 			buyItem(player, "Fourrure", 4)
+			p1.Gold = p1.Gold - 4
 		case 5:
 			buyItem(player, "Peau", 7)
+			p1.Gold = p1.Gold - 7
 		case 6:
 			buyItem(player, "Cuir", 3)
+			p1.Gold = p1.Gold - 3
 		case 7:
 			buyItem(player, "Plume", 1)
+			p1.Gold = p1.Gold - 1
 		case 8:
 			upgradeInventorySlot(player)
 		}

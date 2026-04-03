@@ -47,6 +47,7 @@ func startCombat() {
 		fmt.Println("🏆 Victoire !")
 		gainXP(50)
 		dropLoot()
+		giveGold(20)
 	}
 }
 
@@ -93,6 +94,8 @@ func startBossCombat() {
 		fmt.Println("🏆 Tu as vaincu le boss !!!")
 		gainXP(100)
 		dropLoot()
+		giveGold(100)
+
 	}
 }
 

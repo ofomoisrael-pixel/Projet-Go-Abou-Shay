@@ -6,7 +6,14 @@ import (
 )
 
 func main() {
-	fmt.Println("=== BIENVENUE SUR PROJET RED ===")
+	fmt.Println(`
+██████╗ ███████╗██████╗ 
+██╔══██╗██╔════╝██╔══██╗
+██████╔╝█████╗  ██║  ██║
+██╔══██╗██╔══╝  ██║  ██║
+██║  ██║███████╗██████╔╝
+╚═╝  ╚═╝╚══════╝╚═════╝ 
+`)
 	characterCreation()
 
 	for {
@@ -28,10 +35,13 @@ func main() {
 			accessInventory()
 		case 3:
 			merchantMenu(&p1)
+			printMerchantLogo()
 		case 4:
 			startCombat()
+			printCombatLogo()
 		case 5:
 			startBossCombat()
+			printBossLogo()
 		case 6:
 			fmt.Println("Au revoir !")
 			os.Exit(0)

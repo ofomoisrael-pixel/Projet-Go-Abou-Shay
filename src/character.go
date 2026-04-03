@@ -43,6 +43,7 @@ func characterCreation() {
 	fmt.Println("1. Humain (100 PV)")
 	fmt.Println("2. Elfe (80 PV)")
 	fmt.Println("3. Nain (120 PV)")
+	fmt.Println("4. Hollow (170PV)")
 
 	var choice int
 	fmt.Scan(&choice)
@@ -58,11 +59,9 @@ func characterCreation() {
 		class = "Nain"
 		maxHP = 120
 	case 4:
-		class = "rayann"
-		maxHP = 70
-	case 5:
 		class = "Hollow"
-		maxHP = 13
+		maxHP = 170
+
 	}
 
 	// TACHE 1 & 2 : Initialisation

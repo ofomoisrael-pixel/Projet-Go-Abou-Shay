@@ -13,9 +13,9 @@ type Monster struct {
 
 func createMonster() Monster {
 	if rand.Intn(2) == 0 {
-		return Monster{"Gobelin", 40, 5}
+		return Monster{"Gobelin🧌", 40, 5}
 	}
-	return Monster{"Orc", 80, 10}
+	return Monster{"Orc👹", 80, 10}
 }
 
 func isMonsterDead(m *Monster) bool {
