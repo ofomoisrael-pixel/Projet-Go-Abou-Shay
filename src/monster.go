@@ -29,7 +29,7 @@ func monsterAttack(m Monster) {
 }
 func createBoss() Monster {
 	return Monster{
-		Name:   "Dragon",
+		Name:   "Dragon🐉",
 		HP:     300,
 		Attack: 40,
 	}

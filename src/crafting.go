@@ -26,12 +26,12 @@ func craftItem(player *Character, item string) {
 	recipe := recipes[item]
 
 	if !hasMaterials(player, recipe) {
-		fmt.Println("Not enough ressources")
+		fmt.Println("Pas assez de ressources")
 		return
 	}
 
 	if player.Gold < 5 {
-		fmt.Println("Not enough Money")
+		fmt.Println("Pas assez d'argent")
 		return
 	}
 
@@ -40,7 +40,7 @@ func craftItem(player *Character, item string) {
 
 	addInventory(player, item)
 
-	fmt.Println(item, "made !")
+	fmt.Println(item, "fabriqué !")
 }
 
 // Menu forgeron
@@ -49,21 +49,34 @@ func forgeMenu(player *Character) {
 	choice := -1
 
 	for choice != 0 {
-		fmt.Println("=== BLACKSMITH ===")
-		fmt.Println("1. hat")
-		fmt.Println("2. coat")
-		fmt.Println("3. Boots")
-		fmt.Println("0. exit")
+		fmt.Println("=== FORGERON ===")
+		fmt.Println("1. Chapeau")
+		fmt.Println("2. Tunique")
+		fmt.Println("3. Bottes")
+		fmt.Println("0. Retour")
 
 		fmt.Scan(&choice)
 
 		switch choice {
 		case 1:
-			craftItem(player, "hat")
+			craftItem(player, "Chapeau")
 		case 2:
-			craftItem(player, "coat")
+			craftItem(player, "Tunique")
 		case 3:
-			craftItem(player, "boots")
+			craftItem(player, "Bottes")
 		}
+	}
+}
+
+func gainXP(amount int) {
+	p1.XP += amount
+
+	if p1.XP >= 100 {
+		p1.Level++
+		p1.XP = 0
+		p1.MaxHP += 20
+		p1.CurrentHP = p1.MaxHP
+
+		fmt.Println("🎉 LEVEL UP ! Niveau :", p1.Level)
 	}
 }
