@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func startCombat() {
-	monster := createGoblin()
+	monster := createMonster()
 
 	fmt.Println("\n⚔️ COMBAT COMMENCE ⚔️")
 	fmt.Println("Un", monster.Name, "apparaît !")
@@ -40,5 +40,18 @@ func startCombat() {
 		fmt.Println("💀 Tu as perdu...")
 	} else {
 		fmt.Println("🏆 Victoire !")
+		gainXP(50)
+		dropLoot()
 	}
+}
+func dropLoot() {
+	loot := "Potion"
+	fmt.Println("🎁 Tu as reçu :", loot)
+	addInventory(&p1, loot)
+}
+
+func startBossCombat() {
+	monster := createBoss()
+	fmt.Println("🔥 BOSS FINAL :", monster.Name)
+	// même logique que startCombat
 }

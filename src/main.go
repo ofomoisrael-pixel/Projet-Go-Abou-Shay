@@ -15,7 +15,8 @@ func main() {
 		fmt.Println("2. Accéder à l'inventaire")
 		fmt.Println("3. Aller voir le Marchand")
 		fmt.Println("4. Passer au combat")
-		fmt.Println("5. Quitter ")
+		fmt.Println("5. Boss")
+		fmt.Println("6. Quitter")
 
 		var choice int
 		fmt.Scan(&choice)
@@ -30,8 +31,11 @@ func main() {
 		case 4:
 			startCombat()
 		case 5:
+			startBossCombat()
+		case 6:
 			fmt.Println("Au revoir !")
 			os.Exit(0)
+
 		default:
 			fmt.Println("Choix invalide.")
 		}

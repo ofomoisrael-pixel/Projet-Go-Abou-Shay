@@ -20,6 +20,7 @@ type Character struct {
 	Gold           int
 	InventoryMax   int
 	UpgradeCount   int
+	XP             int
 
 	Head string
 	Body string
